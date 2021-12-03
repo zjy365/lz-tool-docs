@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>7.手写ajax请求函数 | lz-tool</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.8b3afbe4.css" as="style"><link rel="preload" href="/assets/js/app.2fa331c1.js" as="script"><link rel="preload" href="/assets/js/2.30470dc8.js" as="script"><link rel="preload" href="/assets/js/13.727f5d92.js" as="script"><link rel="prefetch" href="/assets/js/10.3e415dd7.js"><link rel="prefetch" href="/assets/js/11.53ff13f4.js"><link rel="prefetch" href="/assets/js/12.17a35f8f.js"><link rel="prefetch" href="/assets/js/14.dca163ab.js"><link rel="prefetch" href="/assets/js/15.221c486e.js"><link rel="prefetch" href="/assets/js/3.d41135c9.js"><link rel="prefetch" href="/assets/js/4.034994d2.js"><link rel="prefetch" href="/assets/js/5.ed618a42.js"><link rel="prefetch" href="/assets/js/6.4cb70d43.js"><link rel="prefetch" href="/assets/js/7.f96181d8.js"><link rel="prefetch" href="/assets/js/8.234c1e1d.js"><link rel="prefetch" href="/assets/js/9.b7e49f1e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8b3afbe4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">lz-tool</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese/" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/english/" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese/" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/english/" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>自定义实现</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/01_函数相关.html" class="sidebar-link">1. 函数相关</a></li><li><a href="/views/02_数组相关.html" class="sidebar-link">2. 数组相关</a></li><li><a href="/views/03_对象相关.html" class="sidebar-link">3. 对象相关</a></li><li><a href="/views/04_字符串相关.html" class="sidebar-link">4.字符串相关</a></li><li><a href="/views/05_手写带委托的事件监听.html" class="sidebar-link">6.手写DOM事件监听(带委托)</a></li><li><a href="/views/06_手写ajax请求函数.html" class="active sidebar-link">7.手写ajax请求函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/06_手写ajax请求函数.html#_7-1-api-相关" class="sidebar-link">7.1.API 相关</a></li><li class="sidebar-sub-header"><a href="/views/06_手写ajax请求函数.html#_7-2-实现整体流程" class="sidebar-link">7.2. 实现整体流程</a></li><li class="sidebar-sub-header"><a href="/views/06_手写ajax请求函数.html#_7-3-测试" class="sidebar-link">7.3.测试</a></li></ul></li><li><a href="/views/07_手写事件总线.html" class="sidebar-link">8.手写事件总线</a></li><li><a href="/views/08_手写消息订阅与发布.html" class="sidebar-link">9.手写消息订阅与发布</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_7-手写ajax请求函数"><a href="#_7-手写ajax请求函数" class="header-anchor">#</a> 7.手写ajax请求函数</h1> <h2 id="_7-1-api-相关"><a href="#_7-1-api-相关" class="header-anchor">#</a> 7.1.API 相关</h2> <ul><li>语法：
+<ul><li>axios(options)
+<ul><li>参数配置对象：url, method, params与data</li> <li>返回值为：promise对象</li></ul></li> <li>axios.get(url, options)</li> <li>axios.post(url, data, options)</li> <li>axios.put(url, data, options)</li> <li>axios.delete(url, options)</li></ul></li> <li>功能：使用xhr发送ajax请求的工具函数，与axios库功能类似</li></ul> <h2 id="_7-2-实现整体流程"><a href="#_7-2-实现整体流程" class="header-anchor">#</a> 7.2. 实现整体流程</h2> <ol><li><p>函数的参数为一个配置对象</p> <p>{
+url: '',   // 请求地址
+method: '',   // 请求方式GET/POST/PUT/DELETE
+params: {},  // GET/DELETE请求的query参数
+data: {}, // POST或DELETE请求的请求体参数
+}</p></li> <li><p>返回值: 函数的返回值为promise, 成功的结果为response, 失败的结果为error</p></li> <li><p>能处理多种类型的请求: GET/POST/PUT/DELETE</p></li> <li><p>响应json数据自动解析为js的对象/数组</p></li></ol> <h2 id="_7-3-测试"><a href="#_7-3-测试" class="header-anchor">#</a> 7.3.测试</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>手写ajax请求函数<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">testGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>发送GET请求<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">testPost</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>发送POST请求<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">testPut</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>发送PUT请求<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value javascript language-javascript"><span class="token function">testDelete</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>发送Delete请求<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+    
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://z.lxandzjy.top/lz_tool.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> axios <span class="token punctuation">}</span> <span class="token operator">=</span> lz
+
+  <span class="token comment">/* 1. GET请求: 从服务器端获取数据*/</span>
+  <span class="token keyword">function</span> <span class="token function">testGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token comment">// url: 'http://localhost:3000/posts',</span>
+      url<span class="token operator">:</span> <span class="token string">'http://localhost:3000/posts2'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'GET'</span><span class="token punctuation">,</span>
+      params<span class="token operator">:</span> <span class="token punctuation">{</span>
+        id<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        xxx<span class="token operator">:</span> <span class="token string">'abc'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment">// axios.get('http://localhost:3000/posts', {params: {id: 1}})</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/* 2. POST请求: 服务器端保存数据*/</span>
+  <span class="token keyword">function</span> <span class="token function">testPost</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token operator">:</span> <span class="token string">'http://localhost:3000/posts'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+      data<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json-server---&quot;</span><span class="token punctuation">,</span> 
+        <span class="token string">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;typicode---&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment">// axios.post('http://localhost:3000/posts', {title: 'aaa', author: 'bbb'})</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/* 3. PUT请求: 服务器端更新数据*/</span>
+  <span class="token keyword">function</span> <span class="token function">testPut</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token operator">:</span> <span class="token string">'http://localhost:3000/posts/1'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'put'</span><span class="token punctuation">,</span>
+      data<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json-server+++&quot;</span><span class="token punctuation">,</span> 
+        <span class="token string">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;typicode+++&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment">// axios.put('http://localhost:3000/posts/1', {title: 'aaa222', author: 'bbb222'})</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/* 2. DELETE请求: 服务器端删除数据*/</span>
+  <span class="token keyword">function</span> <span class="token function">testDelete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token operator">:</span> <span class="token string">'http://localhost:3000/posts/2'</span><span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'delete'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment">// axios.delete('http://localhost:3000/posts/2')</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/views/05_手写带委托的事件监听.html" class="prev">
+        6.手写DOM事件监听(带委托)
+      </a></span> <span class="next"><a href="/views/07_手写事件总线.html">
+        8.手写事件总线
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2fa331c1.js" defer></script><script src="/assets/js/2.30470dc8.js" defer></script><script src="/assets/js/13.727f5d92.js" defer></script>
+  </body>
+</html>

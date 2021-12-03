@@ -1,0 +1,17 @@
+{
+  "name": "z-tool-docs",
+  "version": "1.0.0",
+  "description": "---\r home: true\r # heroImage: /hero.png\r heroText: lz-tool\r tagline: 自定义工具函数库\r actionText: 快速上手 →\r actionLink: views/01_函数相关.md\r features:\r - title: 模块化\r   details: 自定义实现函数，数组，对象，字符串，axios相关的函数。\r - title: 不断学习\r   details: 希望从中有所收获，会不断更新，充实这个工具库。\r - title: 未来期望\r   details: 希望实现像Lodash一样的工具库,Lodash 通过降低 array、number、objects、string 等等的使用难度从而让 JavaScript 变得更简单。\r ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}

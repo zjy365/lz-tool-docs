@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>9.手写消息订阅与发布 | lz-tool</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.8b3afbe4.css" as="style"><link rel="preload" href="/assets/js/app.2fa331c1.js" as="script"><link rel="preload" href="/assets/js/2.30470dc8.js" as="script"><link rel="preload" href="/assets/js/15.221c486e.js" as="script"><link rel="prefetch" href="/assets/js/10.3e415dd7.js"><link rel="prefetch" href="/assets/js/11.53ff13f4.js"><link rel="prefetch" href="/assets/js/12.17a35f8f.js"><link rel="prefetch" href="/assets/js/13.727f5d92.js"><link rel="prefetch" href="/assets/js/14.dca163ab.js"><link rel="prefetch" href="/assets/js/3.d41135c9.js"><link rel="prefetch" href="/assets/js/4.034994d2.js"><link rel="prefetch" href="/assets/js/5.ed618a42.js"><link rel="prefetch" href="/assets/js/6.4cb70d43.js"><link rel="prefetch" href="/assets/js/7.f96181d8.js"><link rel="prefetch" href="/assets/js/8.234c1e1d.js"><link rel="prefetch" href="/assets/js/9.b7e49f1e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8b3afbe4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">lz-tool</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese/" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/english/" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese/" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/english/" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>自定义实现</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/01_函数相关.html" class="sidebar-link">1. 函数相关</a></li><li><a href="/views/02_数组相关.html" class="sidebar-link">2. 数组相关</a></li><li><a href="/views/03_对象相关.html" class="sidebar-link">3. 对象相关</a></li><li><a href="/views/04_字符串相关.html" class="sidebar-link">4.字符串相关</a></li><li><a href="/views/05_手写带委托的事件监听.html" class="sidebar-link">6.手写DOM事件监听(带委托)</a></li><li><a href="/views/06_手写ajax请求函数.html" class="sidebar-link">7.手写ajax请求函数</a></li><li><a href="/views/07_手写事件总线.html" class="sidebar-link">8.手写事件总线</a></li><li><a href="/views/08_手写消息订阅与发布.html" class="active sidebar-link">9.手写消息订阅与发布</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/08_手写消息订阅与发布.html#_9-1-api说明" class="sidebar-link">9.1.API说明</a></li><li class="sidebar-sub-header"><a href="/views/08_手写消息订阅与发布.html#_9-2-测试" class="sidebar-link">9.2.测试</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_9-手写消息订阅与发布"><a href="#_9-手写消息订阅与发布" class="header-anchor">#</a> 9.手写消息订阅与发布</h1> <h2 id="_9-1-api说明"><a href="#_9-1-api说明" class="header-anchor">#</a> 9.1.API说明</h2> <ol><li>PubSub: 包含所有功能的订阅/发布消息的管理者</li> <li>PubSub.subscribe(msg, subscriber): 订阅消息: 指定消息名和订阅者回调函数</li> <li>PubSub.publish(msg, data): 异步发布消息: 指定消息名和数据</li> <li>PubSub.publishSync(msg, data): 同步发布消息: 指定消息名和数据</li> <li>PubSub.unsubscribe(flag): 取消订阅: 根据标识取消某个或某些消息的订阅</li></ol> <h2 id="_9-2-测试"><a href="#_9-2-测试" class="header-anchor">#</a> 9.2.测试</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>手写消息订阅与发布<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://z.lxandzjy.top/lz_tool.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> PubSub <span class="token punctuation">}</span> <span class="token operator">=</span> lz
+  <span class="token comment">// 订阅消息</span>
+  PubSub<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'add'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'add()...'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  PubSub<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'add'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'add2()...'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> token <span class="token operator">=</span> PubSub<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'add'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'add3()...'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  PubSub<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'update()...'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// PubSub.unsubscribe(token)</span>
+  <span class="token comment">// PubSub.unsubscribe('add')</span>
+  <span class="token comment">// PubSub.unsubscribe()</span>
+
+  PubSub<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token string">'add'</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span>
+  <span class="token comment">// PubSub.publish('update', 13)</span>
+  PubSub<span class="token punctuation">.</span><span class="token function">publishSync</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'----'</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/views/07_手写事件总线.html" class="prev">
+        8.手写事件总线
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2fa331c1.js" defer></script><script src="/assets/js/2.30470dc8.js" defer></script><script src="/assets/js/15.221c486e.js" defer></script>
+  </body>
+</html>
