@@ -12,6 +12,7 @@ features:
   details: 通过script标签引入的文件，仅有6.33kb。同时支持多种方式导入。
 - title: 未来期望
   details: 希望实现像Lodash一样的工具库,Lodash 通过降低 array、number、objects、string 等等的使用难度从而让 JavaScript 变得更简单。
+# footer: MIT Licensed | Copyright © 2021-present ZJY
 ---
 
 :tada: :tada: :tada: :100: :100: :100: :yellow_heart: :heart: :blue_heart: 

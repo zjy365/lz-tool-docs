@@ -1,4 +1,5 @@
-
+## Installation
+## 文档地址 http://lxandzjy.top:9009/
 :tada: :tada: :tada: :100: :100: :100: :yellow_heart: :heart: :blue_heart: 
 ```js
   npm i --save lz-tool
